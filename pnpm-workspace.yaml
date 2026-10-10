@@ -1,2 +1,4 @@
 allowBuilds:
   esbuild: false
+patchedDependencies:
+  '@material/material-color-utilities': patches/@material__material-color-utilities.patch
