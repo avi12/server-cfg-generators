@@ -1,3 +1,4 @@
+import { REPO_URL } from "@/constants/links";
 import {
   CvarType,
   isCvarSection,
@@ -6,72 +7,45 @@ import {
   type CvarOption,
   type CvarValueMap
 } from "@/types/cvars";
+import { getDefaultValue, isCvarOption, isEmptyValue, isRequired } from "@/utils/cvars";
 import { downloadTextFile } from "@/utils/download";
-import { computed, reactive, ref, watch } from "vue";
+import { reactive, ref } from "vue";
 
 const REGEX_LINK = /\[(.*?)]\((.*?)\)/g;
 const REGEX_BOLD = /\*(.*)\*/g;
 const NEWLINE = "\r\n";
 const CVAR_LOG = "log";
-const CVAR_RCON_PASSWORD = "rcon_password";
 const CVAR_VOICEENABLE = "sv_voiceenable";
 const VALUE_PAD_EXTRA = 2;
 const TEXT_QUOTES_LENGTH = 2;
 
 interface UseCfgOptions {
   cvars: CvarEntry[];
-  isTf2?: boolean;
+  gameName: string;
+  tutorialUrl?: string;
 }
 
-function isCvarOption(value: CvarValueMap[string]): value is CvarOption {
-  return typeof value === "object" && value !== null && "value" in value;
-}
+// Switches start at their default; every other field starts empty so the
+// user picks a value or opts into the default explicitly
+function getInitialValues(items: CvarItem[]) {
+  const map: CvarValueMap = {};
+  for (const item of items) {
+    if (item.defaultValue === undefined || item.defaultValue === null) {
+      continue;
+    }
 
-function isEmptyValue(value: CvarValueMap[string]) {
-  if (value === "" || value === undefined || value === null) {
-    return true;
+    const isBooleanLike = typeof item.defaultValue === "boolean" || item.defaultValue === "on";
+    map[item.cvar] = isBooleanLike ? item.defaultValue === true || item.defaultValue === "on" : "";
   }
-
-  return isCvarOption(value) && (!("text" in value) || value.text === "");
+  return map;
 }
 
-export function useServerCfgGenerator({ cvars, isTf2 }: UseCfgOptions) {
+export function useServerCfgGenerator({ cvars, gameName, tutorialUrl }: UseCfgOptions) {
   const cvarItems = cvars.filter((entry): entry is CvarItem => !isCvarSection(entry));
 
-  const defaults = computed<CvarValueMap>(() => {
-    const map: CvarValueMap = {};
-    for (const item of cvarItems) {
-      const isMissingDefault = item.defaultValue === undefined || item.defaultValue === null;
-      if (isMissingDefault) {
-        continue;
-      }
-
-      const isBooleanLike = typeof item.defaultValue === "boolean" || item.defaultValue === "on";
-      if (isBooleanLike) {
-        map[item.cvar] = item.defaultValue === true || item.defaultValue === "on";
-      } else {
-        map[item.cvar] = "";
-      }
-    }
-    return map;
-  });
-
-  const values = reactive<CvarValueMap>({ ...defaults.value });
+  const values = reactive<CvarValueMap>(getInitialValues(cvarItems));
   const isAlign = ref(false);
   const isError = ref(false);
-
-  watch(
-    defaults,
-    next => {
-      for (const [key, value] of Object.entries(next)) {
-        const isUnset = values[key] === undefined;
-        if (isUnset) {
-          values[key] = value;
-        }
-      }
-    },
-    { immediate: true }
-  );
 
   function toHtml(tutorial: string) {
     return tutorial
@@ -79,47 +53,27 @@ export function useServerCfgGenerator({ cvars, isTf2 }: UseCfgOptions) {
       .replace(REGEX_BOLD, "<span class=\"font-weight-bold\">$1</span>");
   }
 
-  function getPlaceholder(item: CvarItem) {
-    const isWithDefault = item.defaultValue !== undefined && item.defaultValue !== null;
-    if (isWithDefault) {
-      return `E.g. ${item.defaultValue}`;
-    }
-
-    return item.cvar === CVAR_RCON_PASSWORD ? "(Recommended)" : "(Optional)";
-  }
-
   function useDefaultAll() {
     for (const item of cvarItems) {
       const isCheckbox = item.type === CvarType.Checkbox;
-      if (isCheckbox) {
+      if (isCheckbox || !isEmptyValue(values[item.cvar])) {
         continue;
       }
 
-      const currentValue = values[item.cvar];
-      const isWithUserValue = currentValue !== "" && currentValue !== undefined && currentValue !== null;
-      if (isWithUserValue) {
-        continue;
-      }
-
-      const isSelectWithOptions = item.type === CvarType.Select && Boolean(item.options);
-      if (isSelectWithOptions && item.options) {
-        const match = item.options.find(option => option.value === item.defaultValue);
-        if (match) {
-          values[item.cvar] = match;
-        }
-
-        continue;
-      }
-
-      if (item.defaultValue !== undefined) {
-        values[item.cvar] = item.defaultValue;
+      const defaultValue = getDefaultValue(item);
+      if (defaultValue !== undefined) {
+        values[item.cvar] = defaultValue;
       }
     }
     isError.value = false;
   }
 
+  function findEmptyCvar() {
+    return cvarItems.find(item => isRequired(item) && isEmptyValue(values[item.cvar]))?.cvar;
+  }
+
   function generate() {
-    isError.value = !validateInputs();
+    isError.value = findEmptyCvar() !== undefined;
 
     if (isError.value) {
       return;
@@ -130,9 +84,9 @@ export function useServerCfgGenerator({ cvars, isTf2 }: UseCfgOptions) {
       flattened[key] = isCvarOption(value) ? value.value : value;
     }
 
-    const lines = [`// Generated by ${location.href}`, "// Made by Avi (https://avi12.com)"];
-    if (isTf2) {
-      lines.push("// Full Team Fortress 2 server tutorial: https://www.youtube.com/watch?v=ix2qd__akf8");
+    const lines = [`// Made by Avi (${REPO_URL})`, `// Generated by ${location.href}`];
+    if (tutorialUrl) {
+      lines.push(`// Full ${gameName} server tutorial: ${tutorialUrl}`);
     }
 
     const widths = computeWidths({
@@ -158,44 +112,12 @@ export function useServerCfgGenerator({ cvars, isTf2 }: UseCfgOptions) {
     downloadTextFile(lines.join(NEWLINE), "server.cfg", "text/plain");
   }
 
-  function validateInputs() {
-    for (const item of cvarItems) {
-      const isMissingDefault = item.defaultValue === undefined;
-      const isCheckbox = item.type === CvarType.Checkbox;
-      if (isMissingDefault || isCheckbox) {
-        continue;
-      }
-
-      if (isEmptyValue(values[item.cvar])) {
-        return false;
-      }
-    }
-    return true;
-  }
-
-  function findEmptyCvar() {
-    for (const item of cvarItems) {
-      const isMissingDefault = item.defaultValue === undefined;
-      const isCheckbox = item.type === CvarType.Checkbox;
-      if (isMissingDefault || isCheckbox) {
-        continue;
-      }
-
-      if (isEmptyValue(values[item.cvar])) {
-        return item.cvar;
-      }
-    }
-    return undefined;
-  }
-
   return {
     cvars,
-    cvarItems,
     values,
     isAlign,
     isError,
     toHtml,
-    getPlaceholder,
     useDefaultAll,
     generate,
     findEmptyCvar
