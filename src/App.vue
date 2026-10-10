@@ -52,7 +52,7 @@
   import { findGame } from "@/data/games";
   import { getThemeName } from "@/theme/m3e";
   import { mdiArrowLeft } from "@mdi/js";
-  import { computed } from "vue";
+  import { computed, watchEffect } from "vue";
   import { useRoute } from "vue-router";
   import { useTheme } from "vuetify";
 
@@ -68,5 +68,17 @@
     }
 
     return getThemeName(theme.global.current.value.dark, game.value.pageUrl);
+  });
+
+  // The document scrollbar belongs to <html>, outside <v-app>, so the theme class
+  // - which carries the palette the scrollbar styling in main.css reads - is
+  // mirrored there as well
+  const themeClass = computed(() => `${theme.prefix}theme--${themeName.value ?? theme.name.value}`);
+
+  watchEffect(onCleanup => {
+    const className = themeClass.value;
+    const { classList } = document.documentElement;
+    classList.add(className);
+    onCleanup(() => classList.remove(className));
   });
 </script>
