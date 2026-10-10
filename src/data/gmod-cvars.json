@@ -1,0 +1,443 @@
+[
+  {
+    "title": "Basic settings"
+  },
+  {
+    "type": "text",
+    "tutorial": "The name of the server that will be displayed in the Server Browser",
+    "defaultValue": "Garry's Mod dedicated server",
+    "cvar": "hostname"
+  },
+  {
+    "type": "text",
+    "tutorial": "The password of the server. Used to create private servers. (Leave blank to setup a public server)",
+    "cvar": "sv_password"
+  },
+  {
+    "type": "text",
+    "tutorial": "Add tags, in addition to auto-generated ones",
+    "cvar": "sv_tags"
+  },
+  {
+    "type": "number",
+    "tutorial": "Maximum amount of players that can join the server",
+    "defaultValue": 24,
+    "cvar": "maxplayers"
+  },
+  {
+    "title": "RCON (Remote CONtrol) settings"
+  },
+  {
+    "type": "text",
+    "tutorial": "The RCON password of the server that will allow admins to send commands to the server using Console Variables via Garry's Mod's console. Only you (the owner) should know this password!",
+    "cvar": "rcon_password"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "RCON logging. If enabled, the RCON information will be kept",
+    "defaultValue": true,
+    "cvar": "sv_rcon_log"
+  },
+  {
+    "type": "number",
+    "tutorial": "Number of seconds to track failed RCON authentications",
+    "defaultValue": 10,
+    "cvar": "sv_rcon_minfailuretime"
+  },
+  {
+    "type": "number",
+    "tutorial": "Number of times a user can fail RCON authentication in before being banned",
+    "defaultValue": 5,
+    "cvar": "sv_rcon_minfailures"
+  },
+  {
+    "type": "number",
+    "tutorial": "Max number of times a user can fail RCON authentication before being banned",
+    "defaultValue": 3,
+    "cvar": "sv_rcon_maxfailures"
+  },
+  {
+    "title": "Network settings"
+  },
+  {
+    "type": "url",
+    "tutorial": "If not empty, the given URL will display the webpage that is associated with to the user while loading",
+    "cvar": "sv_loadingurl"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Enable/disable clients to upload customizations files",
+    "defaultValue": true,
+    "cvar": "sv_allowupload"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Enable/disable ability for clients to download missing files",
+    "defaultValue": true,
+    "cvar": "sv_allowdownload"
+  },
+  {
+    "type": "text",
+    "tutorial": "If you want new players to download the custom server's files (music, miscs, maps, etc.) from a remote server, type its root address here. [Tutorial](https://forums.srcds.com/viewtopic/1077)",
+    "cvar": "sv_downloadurl"
+  },
+  {
+    "type": "number",
+    "tutorial": "Maximum allowed file size for uploading in MB",
+    "defaultValue": 15,
+    "cvar": "net_maxfilesize",
+    "specialValues": [
+      {
+        "text": "Max",
+        "value": "64MB"
+      }
+    ]
+  },
+  {
+    "title": "Sandbox settings"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Enable/disable noclip",
+    "defaultValue": false,
+    "cvar": "sbox_noclip"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Enable/disable God mode",
+    "defaultValue": false,
+    "cvar": "sbox_godmode"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Enable/disable PvP (Player vs. Player)",
+    "defaultValue": true,
+    "cvar": "sbox_playershurtplayers"
+  },
+  {
+    "type": "number",
+    "tutorial": "The maximum amount of props a player will be able to spawn. If a player keeps spawning after this limit, previously-spawned props will disappear",
+    "defaultValue": 150,
+    "cvar": "sbox_maxprops"
+  },
+  {
+    "type": "number",
+    "tutorial": "The maximum amount of ragdolls a player will be able to spawn. If a player keeps spawning after this limit, previously-spawned ragdolls will disappear",
+    "defaultValue": 6,
+    "cvar": "sbox_maxragdolls"
+  },
+  {
+    "type": "number",
+    "tutorial": "The maximum amount of NPCs (Non-Playable Characters) a player will be able to spawn. If a player keeps spawning after this limit, previously-spawned NPCs will disappear",
+    "defaultValue": 0,
+    "cvar": "sbox_maxnpcs"
+  },
+  {
+    "type": "number",
+    "tutorial": "The maximum amount of balloons a player will be able to spawn. If a player keeps spawning after this limit, previously-spawned balloons will disappear",
+    "defaultValue": 6,
+    "cvar": "sbox_maxballoons"
+  },
+  {
+    "type": "number",
+    "tutorial": "The maximum amount of effects a player will be able to spawn. If a player keeps spawning after this limit, previously-spawned effects will disappear",
+    "defaultValue": 6,
+    "cvar": "sbox_maxeffects"
+  },
+  {
+    "type": "number",
+    "tutorial": "The maximum amount of dynamites a player will be able to spawn. If a player keeps spawning after this limit, previously-spawned dynamites will disappear",
+    "defaultValue": 0,
+    "cvar": "sbox_maxdynamite"
+  },
+  {
+    "type": "number",
+    "tutorial": "The maximum amount of lamps a player will be able to spawn. If a player keeps spawning after this limit, previously-spawned lamps will disappear",
+    "defaultValue": 6,
+    "cvar": "sbox_maxlamps"
+  },
+  {
+    "type": "number",
+    "tutorial": "The maximum amount of thrusters a player will be able to spawn. If a player keeps spawning after this limit, previously-spawned thrusters will disappear",
+    "defaultValue": 6,
+    "cvar": "sbox_maxthrusters"
+  },
+  {
+    "type": "number",
+    "tutorial": "The maximum amount of wheels a player will be able to spawn. If a player keeps spawning after this limit, previously-spawned wheels will disappear",
+    "defaultValue": 6,
+    "cvar": "sbox_maxwheels"
+  },
+  {
+    "type": "number",
+    "tutorial": "The maximum amount of hover-balls a player will be able to spawn. If a player keeps spawning after this limit, previously-spawned hover-balls will disappear",
+    "defaultValue": 6,
+    "cvar": "sbox_maxhoverballs"
+  },
+  {
+    "type": "number",
+    "tutorial": "The maximum amount of vehicles a player will be able to spawn. If a player keeps spawning after this limit, previously-spawned vehicles will disappear",
+    "defaultValue": 0,
+    "cvar": "sbox_maxvehicles"
+  },
+  {
+    "type": "number",
+    "tutorial": "The maximum amount of buttons a player will be able to spawn. If a player keeps spawning after this limit, previously-spawned buttons will disappear",
+    "defaultValue": 10,
+    "cvar": "sbox_maxbuttons"
+  },
+  {
+    "type": "number",
+    "tutorial": "The maximum amount of emitters a player will be able to spawn. If a player keeps spawning after this limit, previously-spawned emitters will disappear",
+    "defaultValue": 0,
+    "cvar": "sbox_maxemitters"
+  },
+  {
+    "title": "General settings"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "If enabled, the server will only be visible on the Local Area Network",
+    "defaultValue": false,
+    "cvar": "sv_lan"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Enable/disable letting both teams voice chat with each other",
+    "defaultValue": false,
+    "cvar": "sv_alltalk"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Enable/disable \"Friendly fire\". (Teammates can kill each other)",
+    "defaultValue": false,
+    "cvar": "mp_friendlyfire"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "NOT RECOMMENDED! After enabling cheating, achievements *cannot* be earned",
+    "defaultValue": false,
+    "cvar": "sv_cheats"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "NOT RECOMMENDED! Enable/disable the ability to pause the server. Works only if \"sv_cheats\" is set to Enable",
+    "defaultValue": false,
+    "cvar": "sv_pausable"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Forces Spectator Mode's camera for dead players",
+    "defaultValue": false,
+    "cvar": "mp_forcecamera"
+  },
+  {
+    "title": "Idle settings"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Enable/disable auto kick",
+    "defaultValue": true,
+    "cvar": "mp_disable_autokick"
+  },
+  {
+    "title": "Technical settings (don't modify if you don't know)"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Allow voice chat",
+    "defaultValue": true,
+    "cvar": "sv_voiceenable"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Allow third-party programs to play music. E.g. [HLDJ](http://hldj.org)",
+    "defaultValue": false,
+    "cvar": "sv_allow_voice_from_file"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Fade a player's screen to black upon his death",
+    "defaultValue": false,
+    "cvar": "mp_fadetoblack"
+  },
+  {
+    "type": "number",
+    "tutorial": "Amount of damage players sustains from a fall",
+    "defaultValue": 5,
+    "cvar": "mp_falldamage",
+    "specialValues": [
+      {
+        "text": "Disable",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "type": "number",
+    "tutorial": "Lock per-frame time elapse",
+    "defaultValue": 0,
+    "cvar": "host_framerate"
+  },
+  {
+    "type": "number",
+    "tutorial": "Maximum amount of available FPS (frames per second)",
+    "defaultValue": 600,
+    "cvar": "fps_max"
+  },
+  {
+    "type": "number",
+    "tutorial": "Minimum bandwidth rate allowed",
+    "defaultValue": 0,
+    "cvar": "sv_minrate",
+    "specialValues": [
+      {
+        "text": "unlimited",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "type": "number",
+    "tutorial": "Maximum bandwidth rate allowed",
+    "defaultValue": 20000,
+    "cvar": "sv_maxrate",
+    "specialValues": [
+      {
+        "text": "unlimited",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "type": "number",
+    "tutorial": "Minimum allowed updates per second",
+    "defaultValue": 10,
+    "cvar": "sv_minupdaterate"
+  },
+  {
+    "type": "number",
+    "tutorial": "Maximum allowed updates per second",
+    "defaultValue": 60,
+    "cvar": "sv_maxupdaterate"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Enable/disable Spectator Mode",
+    "defaultValue": true,
+    "cvar": "mp_allowspectators"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Enable/disable footstep sounds",
+    "defaultValue": true,
+    "cvar": "mp_footsteps"
+  },
+  {
+    "type": "number",
+    "tutorial": "After this many seconds without any movement from a client, the client is dropped",
+    "defaultValue": 900,
+    "cvar": "sv_timeout"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Allow users to enable color correction",
+    "defaultValue": true,
+    "cvar": "sv_allow_color_correction"
+  },
+  {
+    "title": "Logging"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Enable/disable logging to file, console, and udp",
+    "defaultValue": true,
+    "cvar": "log"
+  },
+  {
+    "type": "checkbox",
+    "placeholder": "Log to only one file?",
+    "tutorial": "Log server information to only one file",
+    "defaultValue": false,
+    "cvar": "sv_log_onefile"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Log server information in the log file",
+    "defaultValue": true,
+    "cvar": "sv_logfile"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Log server bans in the server logs",
+    "defaultValue": true,
+    "cvar": "sv_logbans"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Enable/disable echo log information to the console",
+    "defaultValue": true,
+    "cvar": "sv_logecho"
+  },
+  {
+    "title": "Round settings"
+  },
+  {
+    "type": "number",
+    "tutorial": "Game over chat: Amount of time in seconds players can chat after the game is over",
+    "defaultValue": 5,
+    "cvar": "mp_chattime"
+  },
+  {
+    "title": "Other"
+  },
+  {
+    "type": "email",
+    "tutorial": "Contact Email for server sysop",
+    "cvar": "sv_contact"
+  },
+  {
+    "type": "select",
+    "tutorial": "The server will be displayed in the Server Browser for the selected region",
+    "defaultValue": 255,
+    "cvar": "sv_region",
+    "options": [
+      {
+        "text": "World",
+        "value": 255
+      },
+      {
+        "text": "USA - East",
+        "value": 0
+      },
+      {
+        "text": "USA - West",
+        "value": 1
+      },
+      {
+        "text": "South America",
+        "value": 2
+      },
+      {
+        "text": "Europe",
+        "value": 3
+      },
+      {
+        "text": "Asia",
+        "value": 4
+      },
+      {
+        "text": "Australia",
+        "value": 5
+      },
+      {
+        "text": "Middle East",
+        "value": 6
+      },
+      {
+        "text": "Africa",
+        "value": 7
+      }
+    ]
+  }
+]

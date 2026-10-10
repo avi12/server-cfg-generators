@@ -1,0 +1,869 @@
+[
+  {
+    "title": "Basic settings"
+  },
+  {
+    "type": "text",
+    "tutorial": "The name of the server that will be displayed in the Server Browser",
+    "defaultValue": "Counter-Strike: Global Offensive Dedicated Server",
+    "cvar": "hostname"
+  },
+  {
+    "type": "text",
+    "tutorial": "The password of the server. Used to create private servers. (Leave blank to setup a public server)",
+    "cvar": "sv_password"
+  },
+  {
+    "type": "text",
+    "tutorial": "Add tags, in addition to auto-generated ones",
+    "cvar": "sv_tags"
+  },
+  {
+    "type": "number",
+    "tutorial": "Maximum amount of players that can join the server",
+    "defaultValue": 24,
+    "cvar": "maxplayers"
+  },
+  {
+    "title": "RCON (Remote CONtrol) settings"
+  },
+  {
+    "type": "text",
+    "tutorial": "The RCON password of the server that will allow admins to send commands to the server using Console Variables via Counter-Strike: Global Offensive's console.<br>Only you (the owner) should know this password!",
+    "cvar": "rcon_password"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "RCON logging. If enabled, the RCON information will be kept",
+    "defaultValue": true,
+    "cvar": "sv_rcon_log"
+  },
+  {
+    "type": "number",
+    "tutorial": "Number of seconds to track failed RCON authentications",
+    "defaultValue": 10,
+    "cvar": "sv_rcon_minfailuretime"
+  },
+  {
+    "type": "number",
+    "tutorial": "Number of times a user can fail RCON authentication in before being banned",
+    "defaultValue": 5,
+    "cvar": "sv_rcon_minfailures"
+  },
+  {
+    "type": "number",
+    "tutorial": "Max number of times a user can fail RCON authentication before being banned",
+    "defaultValue": 3,
+    "cvar": "sv_rcon_maxfailures"
+  },
+  {
+    "title": "General settings"
+  },
+  {
+    "type": "number",
+    "tutorial": "The delay (in seconds) between placing sprays",
+    "defaultValue": 10,
+    "cvar": "decalfrequency",
+    "specialValues": [
+      {
+        "text": "no delay",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "type": "number",
+    "tutorial": "The maximum amount of decals that can exist at once. (I.e. Visual effects like bullet impact, sprays)",
+    "defaultValue": 200,
+    "cvar": "mp_decals"
+  },
+  {
+    "type": "text",
+    "tutorial": "Sets a text file which contains a list of map names, used for the map cycle",
+    "cvar": "maps_file"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Set packet filtering by IP mode",
+    "defaultValue": true,
+    "cvar": "sv_filterban"
+  },
+  {
+    "type": "select",
+    "tutorial": "Modifies the allowed user content to be used in the server",
+    "defaultValue": 1,
+    "cvar": "sv_pure",
+    "options": [
+      {
+        "text": "Allow any custom content",
+        "value": 0
+      },
+      {
+        "text": "Allow custom player textures, gun textures and sounds",
+        "value": 1
+      },
+      {
+        "text": "No custom content but only official",
+        "value": 2
+      }
+    ]
+  },
+  {
+    "type": "number",
+    "tutorial": "Modifies the gravity. (Moon gravity = 600)",
+    "defaultValue": 800,
+    "cvar": "sv_gravity"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "If enabled, the server will only be visible on the Local Area Network",
+    "defaultValue": false,
+    "cvar": "sv_lan"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Disable the delay between death and respawn?",
+    "defaultValue": false,
+    "cvar": "sv_disable_respawn_times"
+  },
+  {
+    "type": "number",
+    "tutorial": "After this many seconds respawn after death",
+    "defaultValue": 10,
+    "cvar": "mp_respawnwavetime",
+    "specialValues": [
+      {
+        "text": "no delay",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Enable/disable letting both teams voice chat with each other",
+    "defaultValue": false,
+    "cvar": "sv_alltalk"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Enable/disable dead players to talk to living players",
+    "defaultValue": false,
+    "cvar": "sv_deadtalk"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Enable/disable \"Friendly fire\". (Teammates can kill each other)",
+    "defaultValue": false,
+    "cvar": "mp_friendlyfire"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "If enabled, a team-killer (TK) will be punished next round",
+    "defaultValue": false,
+    "cvar": "mp_tkpunish"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "If enabled, spectators will only be able to spectate their own team",
+    "defaultValue": false,
+    "cvar": "mp_forcecamera"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "NOT RECOMMENDED! After enabling cheating, achievements *cannot* be earned",
+    "defaultValue": false,
+    "cvar": "sv_cheats"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "NOT RECOMMENDED! Enable/disable the ability to pause the server. Works only if \"sv_cheats\" is set to Enable",
+    "defaultValue": false,
+    "cvar": "sv_pausable"
+  },
+  {
+    "title": "Idle settings"
+  },
+  {
+    "type": "number",
+    "tutorial": "Maximum time (in minutes) a player is allowed to be idle",
+    "defaultValue": 15,
+    "cvar": "mp_idlemaxtime"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Enable/disable auto kick",
+    "defaultValue": true,
+    "cvar": "mp_disable_autokick"
+  },
+  {
+    "type": "select",
+    "tutorial": "Punishment for idle players",
+    "defaultValue": 2,
+    "cvar": "mp_idledealmethod",
+    "options": [
+      {
+        "text": "Kick",
+        "value": 2
+      },
+      {
+        "text": "Send to Spectator Mode",
+        "value": 1
+      },
+      {
+        "text": "Disable",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "title": "Technical settings (don't modify if you don't know)"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Allow voice chat",
+    "defaultValue": true,
+    "cvar": "sv_voiceenable"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Allow third-party programs to play music. E.g. [HLDJ](http://hldj.org)",
+    "urls": [
+      {
+        "name": "HLDJ",
+        "url": "https:////hldj.org"
+      }
+    ],
+    "defaultValue": false,
+    "cvar": "sv_allow_voice_from_file"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Fade a player's screen to black upon his death",
+    "defaultValue": false,
+    "cvar": "mp_fadetoblack"
+  },
+  {
+    "type": "number",
+    "tutorial": "Amount of damage players sustains from a fall",
+    "defaultValue": 5,
+    "cvar": "mp_falldamage",
+    "specialValues": [
+      {
+        "text": "Disable",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "type": "number",
+    "tutorial": "Lock per-frame time elapse",
+    "defaultValue": 0,
+    "cvar": "host_framerate"
+  },
+  {
+    "type": "number",
+    "tutorial": "Maximum amount of available FPS (frames per second)",
+    "defaultValue": 600,
+    "cvar": "fps_max"
+  },
+  {
+    "type": "number",
+    "tutorial": "Minimum bandwidth rate allowed",
+    "defaultValue": 0,
+    "cvar": "sv_minrate",
+    "specialValues": [
+      {
+        "text": "unlimited",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "type": "number",
+    "tutorial": "Maximum bandwidth rate allowed",
+    "defaultValue": 20000,
+    "cvar": "sv_maxrate",
+    "specialValues": [
+      {
+        "text": "unlimited",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "type": "number",
+    "tutorial": "Minimum allowed updates per second",
+    "defaultValue": 10,
+    "cvar": "sv_minupdaterate"
+  },
+  {
+    "type": "number",
+    "tutorial": "Maximum allowed updates per second",
+    "defaultValue": 60,
+    "cvar": "sv_maxupdaterate"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Enable/disable Spectator Mode",
+    "defaultValue": true,
+    "cvar": "mp_allowspectators"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Enable/disable footstep sounds",
+    "defaultValue": true,
+    "cvar": "mp_footsteps"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Enable/disable clients to upload customizations files",
+    "defaultValue": true,
+    "cvar": "sv_allowupload"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Enable/disable ability for clients to download missing files",
+    "defaultValue": true,
+    "cvar": "sv_allowdownload"
+  },
+  {
+    "type": "text",
+    "tutorial": "If you want new players to download the custom server's files (music, miscs, maps, etc.) from a remote server, type its root address here. [Tutorial](https://forums.srcds.com/viewtopic/1077)",
+    "urls": [
+      {
+        "name": "Tutorial",
+        "url": "https:////forums.srcds.com/viewtopic/1077"
+      }
+    ],
+    "cvar": "sv_downloadurl"
+  },
+  {
+    "type": "number",
+    "tutorial": "Maximum allowed file size for uploading in MB",
+    "defaultValue": 15,
+    "cvar": "net_maxfilesize"
+  },
+  {
+    "type": "number",
+    "tutorial": "After this many seconds without any movement from a client, the client is dropped",
+    "defaultValue": 900,
+    "cvar": "sv_timeout"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Allow users to enable color correction",
+    "defaultValue": true,
+    "cvar": "sv_allow_color_correction"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Allow usage of \"wait\" command",
+    "defaultValue": false,
+    "cvar": "sv_allow_wait_command"
+  },
+  {
+    "title": "Logging"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Enable/disable logging to file, console, and udp",
+    "defaultValue": "on",
+    "options": [
+      {
+        "text": "On",
+        "value": "on"
+      },
+      {
+        "text": "Off",
+        "value": "off"
+      }
+    ],
+    "cvar": "log"
+  },
+  {
+    "type": "checkbox",
+    "placeholder": "Log to only one file?",
+    "tutorial": "Log server information to only one file",
+    "defaultValue": false,
+    "cvar": "sv_log_onefile"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Log server information in the log file",
+    "defaultValue": true,
+    "cvar": "sv_logfile"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Log server bans in the server logs",
+    "defaultValue": true,
+    "cvar": "sv_logbans"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Enable/disable echo log information to the console",
+    "defaultValue": true,
+    "cvar": "sv_logecho"
+  },
+  {
+    "title": "Round settings"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "If enabled, players will never run out of ammo",
+    "defaultValue": false,
+    "cvar": "sv_infinite_ammo"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "If enabled, the map will restart at the end of the round's limit",
+    "defaultValue": false,
+    "cvar": "mp_match_end_restart"
+  },
+  {
+    "type": "number",
+    "tutorial": "Amount of money awarded to each player after each round",
+    "defaultValue": 0,
+    "cvar": "mp_afterroundmoney"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "If enabled, teams can earn money by performing in-game actions",
+    "defaultValue": false,
+    "cvar": "mp_teamcashawards"
+  },
+  {
+    "type": "number",
+    "tutorial": "Maximum amount of rounds per map",
+    "defaultValue": 30,
+    "cvar": "mp_maxrounds"
+  },
+  {
+    "type": "number",
+    "tutorial": "How many seconds to allow new players to connect when a round starts?",
+    "defaultValue": 8,
+    "cvar": "mp_warmuptime",
+    "specialValues": [
+      {
+        "text": "Disable [don't delay, just start the round]",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "type": "number",
+    "tutorial": "Amount of minutes for the whole map",
+    "defaultValue": 2,
+    "cvar": "mp_roundtime"
+  },
+  {
+    "type": "number",
+    "tutorial": "Amount of minutes for each round",
+    "defaultValue": 0,
+    "cvar": "mp_timelimit"
+  },
+  {
+    "type": "number",
+    "tutorial": "Amount of seconds to show the win panel between matches / halves",
+    "defaultValue": 3,
+    "cvar": "mp_win_panel_display_time"
+  },
+  {
+    "type": "number",
+    "tutorial": "Amount of seconds to keep players frozen when the round starts",
+    "defaultValue": 2,
+    "cvar": "mp_freezetime"
+  },
+  {
+    "type": "number",
+    "tutorial": "Players can buy items for this amount of seconds since the round has started",
+    "defaultValue": 45,
+    "cvar": "mp_buytime"
+  },
+  {
+    "type": "number",
+    "tutorial": "Once a C4 is equipped, it will blow in this amount of seconds",
+    "defaultValue": 45,
+    "cvar": "mp_c4timer"
+  },
+  {
+    "type": "select",
+    "tutorial": "How to allocate defusers to Counter Terrorists at the start of a round?",
+    "defaultValue": 2,
+    "cvar": "mp_defuser_allocation",
+    "options": [
+      {
+        "text": "No allocation",
+        "value": 0
+      },
+      {
+        "text": "Randomized",
+        "value": 1
+      },
+      {
+        "text": "Everyone",
+        "value": 2
+      }
+    ]
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Drop defuser on a player's death?",
+    "defaultValue": true,
+    "cvar": "mp_death_drop_defuser"
+  },
+  {
+    "type": "select",
+    "tutorial": "Which gun to drop upon a player's death?",
+    "defaultValue": 2,
+    "cvar": "mp_death_drop_grenade",
+    "options": [
+      {
+        "text": "None",
+        "value": 0
+      },
+      {
+        "text": "Best",
+        "value": 1
+      },
+      {
+        "text": "Current",
+        "value": 2
+      }
+    ]
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Enables/disables automatic team balancing",
+    "defaultValue": true,
+    "cvar": "mp_autoteambalance"
+  },
+  {
+    "type": "number",
+    "tutorial": "Time after the teams become unbalanced to print a balance warning",
+    "defaultValue": 30,
+    "cvar": "mp_autoteambalance_warning_delay"
+  },
+  {
+    "type": "number",
+    "tutorial": "Time after the teams become unbalanced to attempt to switch players",
+    "defaultValue": 60,
+    "cvar": "mp_autoteambalance_delay"
+  },
+  {
+    "title": "Gameplay control"
+  },
+  {
+    "type": "select",
+    "tutorial": "Controls what information the player sees in the status bar",
+    "defaultValue": 0,
+    "cvar": "mp_playerid",
+    "options": [
+      {
+        "text": "All names",
+        "value": 0
+      },
+      {
+        "text": "Team names",
+        "value": 1
+      },
+      {
+        "text": "No names",
+        "value": 2
+      }
+    ]
+  },
+  {
+    "type": "number",
+    "tutorial": "Amount of seconds to delay showing information in the status bar",
+    "defaultValue": 0,
+    "cvar": "mp_playerid_delay"
+  },
+  {
+    "type": "number",
+    "tutorial": "Amount of seconds to keep showing information in the status bar",
+    "defaultValue": 0,
+    "cvar": "mp_playerid_hold"
+  },
+  {
+    "type": "number",
+    "tutorial": "Teams are unbalanced when one team has this many more players than the other team",
+    "defaultValue": 1,
+    "cvar": "mp_teams_unbalance_limit",
+    "specialValues": [
+      {
+        "text": "Disable balancing",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "type": "number",
+    "tutorial": "Time in seconds after round win until round restarts",
+    "defaultValue": 5,
+    "cvar": "mp_bonusroundtime"
+  },
+  {
+    "type": "number",
+    "tutorial": "Game over chat: Amount of time in seconds players can chat after the game is over",
+    "defaultValue": 5,
+    "cvar": "mp_chattime"
+  },
+  {
+    "title": "Cash settings"
+  },
+  {
+    "type": "number",
+    "tutorial": "Amount of money each player gets when they reset",
+    "defaultValue": 400,
+    "cvar": "mp_startmoney"
+  },
+  {
+    "type": "number",
+    "tutorial": "Maximum amount of money a player is allowed to get",
+    "defaultValue": 12000,
+    "cvar": "mp_maxmoney"
+  },
+  {
+    "type": "number",
+    "tutorial": "If the terrorists will win by keeping the bomb from being eliminated/defused, how much will they earn?",
+    "defaultValue": 2200,
+    "cvar": "cash_team_terrorist_win_bomb"
+  },
+  {
+    "type": "number",
+    "tutorial": "If a counter-terrorist will eliminate all the hostages, how much will he earn?",
+    "defaultValue": 2200,
+    "cvar": "cash_team_elimination_hostage_map"
+  },
+  {
+    "type": "number",
+    "tutorial": "If the counter-terrorists will eliminate the bomb, how much will they earn?",
+    "defaultValue": 2200,
+    "cvar": "cash_team_elimination_bomb_map"
+  },
+  {
+    "type": "number",
+    "tutorial": "If the round time has ended before the counter-terrorists have killed the terrorists, how much how much will the terrorists earn?",
+    "defaultValue": 2200,
+    "cvar": "cash_team_win_by_time_running_out"
+  },
+  {
+    "type": "number",
+    "tutorial": "If the counter-terrorists will defuse the bomb, how much will they earn?",
+    "defaultValue": 2200,
+    "cvar": "cash_team_win_by_defusing_bomb"
+  },
+  {
+    "type": "number",
+    "tutorial": "If the terrorists will plant a bomb, how much will the counter-terrorists earn for defusing it?",
+    "defaultValue": 200,
+    "cvar": "cash_team_planted_bomb_but_defused"
+  },
+  {
+    "type": "number",
+    "tutorial": "If the counter-terrorists win by rescuing all the hostages, how much will they earn?",
+    "defaultValue": 2200,
+    "cvar": "cash_team_win_by_hostage_rescue"
+  },
+  {
+    "type": "number",
+    "tutorial": "If the counter-terrorists rescue a hostage, how much will they earn?",
+    "defaultValue": 100,
+    "cvar": "cash_team_rescued_hostage"
+  },
+  {
+    "type": "number",
+    "tutorial": "If a hostage is still alive, how much will the counter-terrorists earn?",
+    "defaultValue": 0,
+    "cvar": "cash_team_hostage_alive"
+  },
+  {
+    "type": "number",
+    "tutorial": "If the counter-terrorists have managed to save some hostages, how much will they earn?",
+    "defaultValue": 50,
+    "cvar": "cash_team_hostage_interaction"
+  },
+  {
+    "type": "number",
+    "tutorial": "How much will the loser team earn?",
+    "defaultValue": 2000,
+    "cvar": "cash_team_loser_bonus"
+  },
+  {
+    "type": "number",
+    "tutorial": "In consecutive rounds, how much will the loser team earn?",
+    "defaultValue": 500,
+    "cvar": "cash_team_loser_bonus_consecutive_rounds"
+  },
+  {
+    "type": "number",
+    "tutorial": "If a player has killed a member of his team, how much will he lose?",
+    "defaultValue": -3300,
+    "cvar": "cash_player_killed_teammate"
+  },
+  {
+    "type": "number",
+    "tutorial": "When a player kills an enemy, how much will he earn?",
+    "defaultValue": 200,
+    "cvar": "cash_player_killed_enemy_default"
+  },
+  {
+    "type": "number",
+    "tutorial": "When a player kills an enemy, by what factor will he earn more every time?",
+    "defaultValue": 0.5,
+    "cvar": "cash_player_killed_enemy_factor"
+  },
+  {
+    "type": "number",
+    "tutorial": "When a terrorist plants a bomb, how much will he earn of it?",
+    "defaultValue": 200,
+    "cvar": "cash_player_bomb_planted"
+  },
+  {
+    "type": "number",
+    "tutorial": "When a counter-terrorist defuses a bomb, how much will he earn of it?",
+    "defaultValue": 200,
+    "cvar": "cash_player_bomb_defused"
+  },
+  {
+    "type": "number",
+    "tutorial": "When a counter-terrorist rescues a hostage, how much will he earn?",
+    "defaultValue": 200,
+    "cvar": "cash_player_rescued_hostage"
+  },
+  {
+    "type": "number",
+    "tutorial": "When a counter-terrorist interacts with a hostage, how much will he earn?",
+    "defaultValue": 0,
+    "cvar": "cash_player_interact_with_hostage"
+  },
+  {
+    "type": "number",
+    "tutorial": "When a counter-terrorist harms a hostage, how much will he lose?",
+    "defaultValue": -30,
+    "cvar": "cash_player_damage_hostage"
+  },
+  {
+    "type": "number",
+    "tutorial": "When a counter-terrorist kills a hostage, how much will he lose?",
+    "defaultValue": -100,
+    "cvar": "cash_player_killed_hostage"
+  },
+  {
+    "title": "Voting"
+  },
+  {
+    "type": "number",
+    "tutorial": "If not 0, will set how much percentage of all players have to vote the same map before the server changes to this map",
+    "defaultValue": 0.5,
+    "cvar": "mp_mapvoteratio",
+    "max": 1,
+    "specialValues": [
+      {
+        "text": "Disable",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Enable/disable the spectators' ability to vote",
+    "defaultValue": false,
+    "cvar": "sv_vote_allow_spectators"
+  },
+  {
+    "type": "number",
+    "tutorial": "After a vote has successfully passed, how many minutes to wait until the text happens?",
+    "defaultValue": 2,
+    "cvar": "sv_vote_command_delay"
+  },
+  {
+    "type": "number",
+    "tutorial": "When a player calls a vote, he has to wait this amount of seconds before calling another vote",
+    "defaultValue": 120,
+    "cvar": "sv_vote_creation_time"
+  },
+  {
+    "type": "number",
+    "tutorial": "If a player calls a vote but it fails, he has to wait for  this amount of seconds before re-calling a vote",
+    "defaultValue": 300,
+    "cvar": "sv_vote_failure_timer"
+  },
+  {
+    "type": "number",
+    "tutorial": "The minimum ratio of players need to vote on an issue to resolve it",
+    "defaultValue": 0,
+    "cvar": "sv_vote_quorum_ratio"
+  },
+  {
+    "type": "number",
+    "tutorial": "Amount of time that a vote lasts in",
+    "defaultValue": 15,
+    "cvar": "sv_vote_timer_duration"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "If enabled, players will be able to vote for the next map at the end",
+    "defaultValue": true,
+    "cvar": "mp_endmatch_votenextmap"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "If enabled, players will be able to vote for restarting the map at the end",
+    "defaultValue": false,
+    "cvar": "mp_map_end_restart"
+  },
+  {
+    "title": "Other"
+  },
+  {
+    "type": "email",
+    "tutorial": "Contact Email for server sysop",
+    "cvar": "sv_contact"
+  },
+  {
+    "type": "select",
+    "tutorial": "The server will be displayed in the Server Browser for the selected region",
+    "defaultValue": 255,
+    "cvar": "sv_region",
+    "options": [
+      {
+        "text": "World",
+        "value": 255
+      },
+      {
+        "text": "USA - East",
+        "value": 0
+      },
+      {
+        "text": "USA - West",
+        "value": 1
+      },
+      {
+        "text": "South America",
+        "value": 2
+      },
+      {
+        "text": "Europe",
+        "value": 3
+      },
+      {
+        "text": "Asia",
+        "value": 4
+      },
+      {
+        "text": "Australia",
+        "value": 5
+      },
+      {
+        "text": "Middle East",
+        "value": 6
+      },
+      {
+        "text": "Africa",
+        "value": 7
+      }
+    ]
+  }
+]

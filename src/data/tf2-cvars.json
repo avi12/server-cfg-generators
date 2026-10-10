@@ -1,0 +1,574 @@
+[
+  {
+    "title": "Basic settings"
+  },
+  {
+    "type": "text",
+    "tutorial": "The name of the server that will be displayed in the Server Browser",
+    "defaultValue": "Team Fortress 2 Dedicated Server",
+    "cvar": "hostname"
+  },
+  {
+    "type": "text",
+    "tutorial": "The password of the server. Used to create private servers (Leave blank to setup a public server)",
+    "cvar": "sv_password"
+  },
+  {
+    "type": "text",
+    "tutorial": "Add tags, in addition to auto-generated ones",
+    "cvar": "sv_tags"
+  },
+  {
+    "type": "number",
+    "tutorial": "Maximum number of players that can join the server",
+    "defaultValue": 24,
+    "cvar": "maxplayers"
+  },
+  {
+    "title": "RCON (Remote CONtrol) settings"
+  },
+  {
+    "type": "text",
+    "tutorial": "The RCON password of the server that will allow admins to send commands to the server using Console Variables via Team Fortress 2's console. Only you (the owner) should know this password!",
+    "cvar": "rcon_password"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "RCON logging. If enabled, the RCON information will be kept",
+    "defaultValue": true,
+    "cvar": "sv_rcon_log"
+  },
+  {
+    "type": "number",
+    "tutorial": "Number of seconds to track failed RCON authentications",
+    "defaultValue": 10,
+    "cvar": "sv_rcon_minfailuretime"
+  },
+  {
+    "type": "number",
+    "tutorial": "Number of times a user can fail RCON authentication in before being banned",
+    "defaultValue": 5,
+    "cvar": "sv_rcon_minfailures"
+  },
+  {
+    "type": "number",
+    "tutorial": "Max number of times a user can fail RCON authentication before being banned",
+    "defaultValue": 3,
+    "cvar": "sv_rcon_maxfailures"
+  },
+  {
+    "title": "General settings"
+  },
+  {
+    "type": "number",
+    "tutorial": "The delay (in seconds) between placing sprays",
+    "defaultValue": 10,
+    "cvar": "decalfrequency",
+    "specialValues": [
+      {
+        "text": "no delay",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "type": "number",
+    "tutorial": "The maximum number of decals that can exist at once (i.e. Visual effects like bullet impact, sprays)",
+    "defaultValue": 200,
+    "cvar": "mp_decals"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Enable/disable the ability to use \"+use\" in servers. Can be used only in maps that have buttons",
+    "defaultValue": false,
+    "cvar": "tf_allow_player_use"
+  },
+  {
+    "type": "select",
+    "tutorial": "Modifies the ability to switch weapons during taunting",
+    "defaultValue": 2,
+    "cvar": "tf_allow_taunt_switch",
+    "options": [
+      {
+        "text": "At any time during taunting",
+        "value": 2
+      },
+      {
+        "text": "At the beginning of the taunt",
+        "value": 1
+      },
+      {
+        "text": "Disable",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "type": "select",
+    "tutorial": "Modifies holiday mode",
+    "defaultValue": 0,
+    "cvar": "tf_forced_holiday",
+    "options": [
+      {
+        "text": "Disable",
+        "value": 0
+      },
+      {
+        "text": "Birthday",
+        "value": 1
+      },
+      {
+        "text": "Halloween",
+        "value": 2
+      },
+      {
+        "text": "Christmas",
+        "value": 3
+      },
+      {
+        "text": "Valentine's Day",
+        "value": 4
+      },
+      {
+        "text": "Meet the Pyro",
+        "value": 5
+      },
+      {
+        "text": "Full Moon",
+        "value": 6
+      }
+    ]
+  },
+  {
+    "type": "select",
+    "tutorial": "Modifies the allowed user content to be used in the server",
+    "defaultValue": 1,
+    "cvar": "sv_pure",
+    "options": [
+      {
+        "text": "Allow any custom content",
+        "value": 0
+      },
+      {
+        "text": "Allow custom player textures, gun textures and sounds",
+        "value": 1
+      },
+      {
+        "text": "No custom content but only official",
+        "value": 2
+      }
+    ]
+  },
+  {
+    "type": "number",
+    "tutorial": "Modifies the gravity",
+    "defaultValue": 800,
+    "cvar": "sv_gravity",
+    "specialValues": [
+      {
+        "text": "Moon gravity",
+        "value": 600
+      }
+    ]
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "If enabled, the server will only be visible on the Local Area Network",
+    "defaultValue": false,
+    "cvar": "sv_lan"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Enable/disable \"Waiting for Players\" message. *Note*: This Cvar requires [Metamod: Source](https://www.sourcemm.net/downloads.php?branch=stable) and [SourceMod](https://www.sourcemod.net/downloads.php?branch=stable) to be installed on the server",
+    "defaultValue": false,
+    "cvar": "sm_cvar mp_waitingforplayers_time"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Disable the delay between death and respawn?",
+    "defaultValue": false,
+    "cvar": "sv_disable_respawn_times"
+  },
+  {
+    "type": "number",
+    "tutorial": "After this many seconds respawn after death",
+    "defaultValue": 10,
+    "cvar": "mp_respawnwavetime",
+    "specialValues": [
+      {
+        "text": "no delay",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Enable/disable letting both teams voice chat with each other",
+    "defaultValue": false,
+    "cvar": "sv_alltalk"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Enable/disable \"Friendly fire\" (Teammates can kill each other)",
+    "defaultValue": false,
+    "cvar": "mp_friendlyfire"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "NOT RECOMMENDED! After enabling cheating, achievements *cannot* be earned",
+    "defaultValue": false,
+    "cvar": "sv_cheats"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "NOT RECOMMENDED! Enable/disable the ability to pause the server. Works only if \"sv_cheats\" is set to On",
+    "defaultValue": false,
+    "cvar": "sv_pausable"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Forces Spectator Mode's camera for dead players",
+    "defaultValue": false,
+    "cvar": "mp_forcecamera"
+  },
+  {
+    "title": "Idle settings"
+  },
+  {
+    "type": "number",
+    "tutorial": "Maximum time (in minutes) a player is allowed to be idle",
+    "defaultValue": 15,
+    "cvar": "mp_idlemaxtime"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Enable/disable auto kick",
+    "defaultValue": true,
+    "cvar": "mp_disable_autokick"
+  },
+  {
+    "type": "select",
+    "tutorial": "Punishment for idle players",
+    "defaultValue": 2,
+    "cvar": "mp_idledealmethod",
+    "options": [
+      {
+        "text": "Kick",
+        "value": 2
+      },
+      {
+        "text": "Send to Spectator Mode",
+        "value": 1
+      },
+      {
+        "text": "Disable",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "title": "Technical settings (use defaults if you don't know)"
+  },
+  {
+    "type": "number",
+    "tutorial": "The maximum milliseconds that a client can take to process commands. Surpassing it will result in an auto-kick",
+    "defaultValue": 128,
+    "cvar": "net_chan_limit_msec"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Allow voice chat",
+    "defaultValue": true,
+    "cvar": "sv_voiceenable"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Allow third-party programs to play music. E.g. [HLDJ](http://hldj.org)",
+    "defaultValue": false,
+    "cvar": "sv_allow_voice_from_file"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Fade a player's screen to black upon his death",
+    "defaultValue": false,
+    "cvar": "mp_fadetoblack"
+  },
+  {
+    "type": "number",
+    "tutorial": "Number of damage players sustains from a fall",
+    "defaultValue": 5,
+    "cvar": "mp_falldamage",
+    "specialValues": [
+      {
+        "text": "Disable",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "type": "number",
+    "tutorial": "Lock per-frame time elapse",
+    "defaultValue": 0,
+    "cvar": "host_framerate"
+  },
+  {
+    "type": "number",
+    "tutorial": "Maximum number of available FPS (frames per second)",
+    "defaultValue": 600,
+    "cvar": "fps_max"
+  },
+  {
+    "type": "number",
+    "tutorial": "Minimum bandwidth rate allowed",
+    "defaultValue": 0,
+    "cvar": "sv_minrate",
+    "specialValues": [
+      {
+        "text": "unlimited",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "type": "number",
+    "tutorial": "Maximum bandwidth rate allowed",
+    "defaultValue": 20000,
+    "cvar": "sv_maxrate",
+    "specialValues": [
+      {
+        "text": "unlimited",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "type": "number",
+    "tutorial": "Minimum allowed updates per second",
+    "defaultValue": 10,
+    "cvar": "sv_minupdaterate"
+  },
+  {
+    "type": "number",
+    "tutorial": "Maximum allowed updates per second",
+    "defaultValue": 66,
+    "cvar": "sv_maxupdaterate"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Enable/disable Spectator Mode",
+    "defaultValue": true,
+    "cvar": "mp_allowspectators"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Enable/disable footstep sounds",
+    "defaultValue": true,
+    "cvar": "mp_footsteps"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Enable/disable critical hits",
+    "defaultValue": true,
+    "cvar": "tf_weapon_criticals"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Enable/disable clients to upload customizations files",
+    "defaultValue": true,
+    "cvar": "sv_allowupload"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Enable/disable ability for clients to download missing files",
+    "defaultValue": true,
+    "cvar": "sv_allowdownload"
+  },
+  {
+    "type": "text",
+    "tutorial": "If you want new players to download the custom server's files (music, miscs, maps, etc.) from a remote server, type its root address here. [Tutorial](https://developer.valvesoftware.com/wiki/Sv_downloadurl)",
+    "cvar": "sv_downloadurl"
+  },
+  {
+    "type": "number",
+    "tutorial": "Maximum allowed file size for uploading in MB",
+    "defaultValue": 15,
+    "cvar": "net_maxfilesize"
+  },
+  {
+    "type": "number",
+    "tutorial": "After this many seconds without any movement from a client, the client is dropped",
+    "defaultValue": 900,
+    "cvar": "sv_timeout"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Allow users to enable color correction",
+    "defaultValue": true,
+    "cvar": "sv_allow_color_correction"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Allow usage of \"wait\" command",
+    "defaultValue": false,
+    "cvar": "sv_allow_wait_command"
+  },
+  {
+    "title": "Logging"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Enable/disable logging to file, console, and udp",
+    "defaultValue": "on",
+    "options": [
+      {
+        "text": "On",
+        "value": "on"
+      },
+      {
+        "text": "Off",
+        "value": "off"
+      }
+    ],
+    "cvar": "log"
+  },
+  {
+    "type": "checkbox",
+    "placeholder": "Log to only one file?",
+    "tutorial": "Log server information to only one file",
+    "defaultValue": false,
+    "cvar": "sv_log_onefile"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Log server information in the log file",
+    "defaultValue": true,
+    "cvar": "sv_logfile"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Log server bans in the server logs",
+    "defaultValue": true,
+    "cvar": "sv_logbans"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Enable/disable echo log information to the console",
+    "defaultValue": true,
+    "cvar": "sv_logecho"
+  },
+  {
+    "title": "Round settings"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Enable/disable Sudden Death mode",
+    "defaultValue": false,
+    "cvar": "mp_stalemate_enable"
+  },
+  {
+    "type": "number",
+    "tutorial": "Time (in seconds) of the Sudden Death round",
+    "defaultValue": 300,
+    "cvar": "mp_stalemate_timelimit"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Force auto team joining",
+    "defaultValue": false,
+    "cvar": "mp_forceautoteam"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Enables/disables automatic team balancing",
+    "defaultValue": true,
+    "cvar": "mp_autoteambalance"
+  },
+  {
+    "type": "number",
+    "tutorial": "Time after the teams become unbalanced to print a balance warning",
+    "defaultValue": 30,
+    "cvar": "mp_autoteambalance_warning_delay"
+  },
+  {
+    "type": "number",
+    "tutorial": "Time after the teams become unbalanced to attempt to switch players",
+    "defaultValue": 60,
+    "cvar": "mp_autoteambalance_delay"
+  },
+  {
+    "type": "number",
+    "tutorial": "Teams are unbalanced when one team has this many more players than the other team",
+    "defaultValue": 1,
+    "cvar": "mp_teams_unbalance_limit",
+    "specialValues": [
+      {
+        "text": "Disable balancing",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "type": "number",
+    "tutorial": "Time in seconds after round win until round restarts",
+    "defaultValue": 5,
+    "cvar": "mp_bonusroundtime"
+  },
+  {
+    "type": "number",
+    "tutorial": "Game over chat: number of time in seconds players can chat after the game is over",
+    "defaultValue": 5,
+    "cvar": "mp_chattime"
+  },
+  {
+    "title": "Other"
+  },
+  {
+    "type": "email",
+    "tutorial": "Contact Email for server sysop",
+    "cvar": "sv_contact"
+  },
+  {
+    "type": "select",
+    "tutorial": "The server will be displayed in the Server Browser for the selected region",
+    "defaultValue": 255,
+    "cvar": "sv_region",
+    "options": [
+      {
+        "text": "World",
+        "value": 255
+      },
+      {
+        "text": "USA - East",
+        "value": 0
+      },
+      {
+        "text": "USA - West",
+        "value": 1
+      },
+      {
+        "text": "South America",
+        "value": 2
+      },
+      {
+        "text": "Europe",
+        "value": 3
+      },
+      {
+        "text": "Asia",
+        "value": 4
+      },
+      {
+        "text": "Australia",
+        "value": 5
+      },
+      {
+        "text": "Middle East",
+        "value": 6
+      },
+      {
+        "text": "Africa",
+        "value": 7
+      }
+    ]
+  }
+]
