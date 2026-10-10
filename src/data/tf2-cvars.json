@@ -232,6 +232,12 @@
     "cvar": "mp_forcecamera"
   },
   {
+    "type": "checkbox",
+    "tutorial": "Allows players to stick to certain oblique angles of walls and props. Set to \"1\" if you're running a jump/competitive server that specifically abuses this bug",
+    "defaultValue": false,
+    "cvar": "sv_wallbug"
+  },
+  {
     "title": "Idle settings"
   },
   {
@@ -274,6 +280,12 @@
     "tutorial": "The maximum milliseconds that a client can take to process commands. Surpassing it will result in an auto-kick",
     "defaultValue": 128,
     "cvar": "net_chan_limit_msec"
+  },
+  {
+    "type": "checkbox",
+    "tutorial": "Multithreaded networking, improves networking performance on multi-threaded systems",
+    "defaultValue": true,
+    "cvar": "sv_parallel_sendsnapshot"
   },
   {
     "type": "checkbox",
