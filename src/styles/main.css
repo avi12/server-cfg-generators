@@ -102,3 +102,12 @@
 .v-switch .v-selection-control--dirty .v-switch__thumb {
   background-color: rgb(var(--v-theme-on-primary));
 }
+
+/* Scrollbars - the document's and every scrollable panel's - run in the page's
+   own palette: a primary-colored thumb on a tonal track. App.vue mirrors the
+   active theme class onto <html>, since the document scrollbar belongs to the
+   root element, outside <v-app>, and scrollbar-color inherits from there. */
+html {
+  scrollbar-color: rgb(var(--v-theme-primary)) rgb(var(--v-theme-surface-container-high));
+  scrollbar-width: thin;
+}
