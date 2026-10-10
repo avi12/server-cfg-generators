@@ -28,6 +28,9 @@
   --m3e-spring: linear(0, 0.23 7%, 0.64 17%, 0.94 29%, 1.04 40%, 1.03 52%, 1 72%, 1);
   --m3e-spring-duration: 350ms;
   --motion-medium: 300ms;
+
+  /* Lets height animate to and from auto, so slides track the real content height */
+  interpolate-size: allow-keywords;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -44,14 +47,23 @@
   letter-spacing: -0.01em;
 }
 
-/* Signature Expressive shape morph: pills square up while pressed */
-.v-btn {
-  transition-timing-function: var(--m3e-spring);
-  transition-duration: var(--m3e-spring-duration);
-  transition-property: border-radius, background-color, box-shadow;
+/* Signature Expressive shape morph: pills square up while pressed.
+   Pills use exactly half their height rather than 9999px, so the corners
+   start changing the moment the press begins instead of snapping at the end. */
+.v-btn.rounded-pill {
+  border-radius: calc(var(--v-btn-height) / 2);
+  transition:
+    border-radius var(--m3e-spring-duration) var(--m3e-spring),
+    box-shadow 280ms,
+    background-color 280ms;
 }
 
-.v-btn:active {
+/* Icon buttons render 12px taller than --v-btn-height */
+.v-btn--icon.rounded-pill {
+  border-radius: calc(var(--v-btn-height) / 2 + 6px);
+}
+
+.v-btn.rounded-pill:active {
   border-radius: 12px;
 }
 
@@ -67,14 +79,18 @@
 
 .slide-enter-from,
 .slide-leave-to {
-  max-height: 0;
+  height: 0;
+  opacity: 0%;
 }
 
 .slide-enter-active,
 .slide-leave-active {
   overflow: hidden;
-  /* stylelint-disable-next-line plugin/no-low-performance-animation-properties */
-  transition: max-height var(--motion-medium);
+  /* stylelint-disable plugin/no-low-performance-animation-properties */
+  transition:
+    height var(--motion-medium) var(--m3e-spring),
+    opacity var(--motion-medium);
+  /* stylelint-enable plugin/no-low-performance-animation-properties */
 }
 
 /* Material 3 "on" switch: solid primary track with an on-primary thumb */

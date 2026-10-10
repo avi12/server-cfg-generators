@@ -119,10 +119,3 @@
     elRow?.querySelector<HTMLInputElement>("input")?.focus();
   }
 </script>
-
-<style scoped>
-.slide-enter-to,
-.slide-leave-from {
-  max-height: 200px;
-}
-</style>
