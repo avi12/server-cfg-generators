@@ -1,0 +1,88 @@
+@font-face {
+  font-family: "TF2";
+  font-style: normal;
+  font-display: swap;
+  src: url("@/assets/fonts/tf2/tf2-build.woff") format("woff");
+}
+
+@font-face {
+  font-family: "CS2";
+  font-style: normal;
+  font-display: swap;
+  src:
+    url("@/assets/fonts/cs2/stratum2-bold.ttf") format("truetype"),
+    url("@/assets/fonts/cs2/stratum2-bold.woff") format("woff");
+}
+
+@font-face {
+  font-family: Gmod;
+  font-style: normal;
+  font-display: swap;
+  src:
+    url("@/assets/fonts/gmod/coolvetica-rg.ttf") format("truetype"),
+    url("@/assets/fonts/gmod/coolvetica-rg.woff") format("woff");
+}
+
+:root {
+  /* Material 3 Expressive "fast spatial" spring, approximated with linear() */
+  --m3e-spring: linear(0, 0.23 7%, 0.64 17%, 0.94 29%, 1.04 40%, 1.03 52%, 1 72%, 1);
+  --m3e-spring-duration: 350ms;
+  --motion-medium: 300ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --m3e-spring-duration: 0ms;
+    --motion-medium: 0ms;
+  }
+}
+
+/* Expressive headlines run heavier and wider on Roboto Flex's axes */
+.headline-emphasized.headline-emphasized {
+  font-weight: 700;
+  font-variation-settings: "wdth" 120;
+  letter-spacing: -0.01em;
+}
+
+/* Signature Expressive shape morph: pills square up while pressed */
+.v-btn {
+  transition-timing-function: var(--m3e-spring);
+  transition-duration: var(--m3e-spring-duration);
+  transition-property: border-radius, background-color, box-shadow;
+}
+
+.v-btn:active {
+  border-radius: 12px;
+}
+
+.game-font.game-font {
+  font-family: var(--game-font, inherit), sans-serif;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.v-application :any-link:not(.v-btn, .v-card) {
+  color: rgb(var(--v-theme-primary));
+}
+
+.slide-enter-from,
+.slide-leave-to {
+  max-height: 0;
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  overflow: hidden;
+  /* stylelint-disable-next-line plugin/no-low-performance-animation-properties */
+  transition: max-height var(--motion-medium);
+}
+
+/* Material 3 "on" switch: solid primary track with an on-primary thumb */
+.v-switch .v-selection-control--dirty .v-switch__track {
+  background-color: rgb(var(--v-theme-primary));
+  opacity: 100%;
+}
+
+.v-switch .v-selection-control--dirty .v-switch__thumb {
+  background-color: rgb(var(--v-theme-on-primary));
+}

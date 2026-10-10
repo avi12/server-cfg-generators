@@ -1,0 +1,11 @@
+// Material 3 Expressive shape scale and type family, fed into Vuetify's SASS
+@use "vuetify/settings" with (
+  $body-font-family: ("Roboto Flex Variable", "Roboto", sans-serif),
+  $rounded: (
+    "sm": 8px,
+    "md": 12px,
+    "lg": 16px,
+    "xl": 28px,
+    "xxl": 48px
+  )
+);

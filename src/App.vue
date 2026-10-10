@@ -1,18 +1,32 @@
 <template>
-  <v-app class="tabs-background">
+  <v-app :theme="themeName">
     <v-main>
       <v-container>
         <v-card
-          class="mx-auto"
-          max-width="600"
-          :variant="isHome ? 'flat' : 'elevated'"
+          class="mx-auto pa-2"
+          max-width="640"
         >
           <v-container>
-            <RouterView />
+            <RouterView v-slot="{ Component }">
+              <Suspense>
+                <component
+                  :is="Component"
+                  :key="route.path"
+                />
+                <template #fallback>
+                  <div class="d-flex justify-center my-16">
+                    <v-progress-circular
+                      color="primary"
+                      indeterminate
+                    />
+                  </div>
+                </template>
+              </Suspense>
+            </RouterView>
             <v-btn
-              v-if="!isHome"
+              v-if="game"
               icon
-              variant="elevated"
+              variant="tonal"
               aria-label="Go back"
               to="/"
             >
@@ -20,10 +34,10 @@
             </v-btn>
           </v-container>
         </v-card>
-        <footer class="text-center text-caption my-5">
+        <footer class="text-center text-body-2 my-5">
           Made by
           <a
-            href="https://avi12.com"
+            :href="REPO_URL"
             target="_blank"
             rel="noopener noreferrer"
           >Avi</a>
@@ -34,61 +48,25 @@
 </template>
 
 <script setup lang="ts">
-  import { useAppTheme } from "@/composables/useTheme";
+  import { REPO_URL } from "@/constants/links";
+  import { findGame } from "@/data/games";
+  import { getThemeName } from "@/theme/m3e";
   import { mdiArrowLeft } from "@mdi/js";
   import { computed } from "vue";
   import { useRoute } from "vue-router";
-
-  useAppTheme();
+  import { useTheme } from "vuetify";
 
   const route = useRoute();
-  const isHome = computed(() => route.name === "home");
+  const theme = useTheme();
+
+  const game = computed(() => findGame(route.name));
+
+  // Game pages take their color scheme from the game; the rest follow the OS
+  const themeName = computed(() => {
+    if (!game.value) {
+      return undefined;
+    }
+
+    return getThemeName(theme.global.current.value.dark, game.value.pageUrl);
+  });
 </script>
-
-<style>
-:root {
-  --color-accent: oklch(55.7% 0.224 263deg);
-  --color-divider-cs2: oklch(62.7% 0.194 149deg);
-  --color-divider-gmod: oklch(55.7% 0.224 263deg);
-  --color-divider-tf2: oklch(69% 0.181 49deg);
-  --motion-fast: 250ms;
-  --motion-medium: 300ms;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  :root {
-    --motion-fast: 0ms;
-    --motion-medium: 0ms;
-  }
-}
-
-.link--light {
-  color: color-mix(in oklch, var(--color-accent) 80%, oklch(0% 0 0deg));
-}
-
-.link--dark {
-  color: color-mix(in oklch, var(--color-accent) 60%, oklch(100% 0 0deg));
-}
-
-.slide-enter-from,
-.slide-leave-to {
-  max-height: 0;
-}
-
-.tabs-background {
-  background-color: oklch(100% 0 0deg);
-}
-
-.slide-enter-active,
-.slide-leave-active {
-  overflow: hidden;
-  /* stylelint-disable-next-line plugin/no-low-performance-animation-properties */
-  transition: max-height var(--motion-medium);
-}
-
-@media (prefers-color-scheme: dark) {
-  .tabs-background {
-    background-color: oklch(17.8% 0 0deg);
-  }
-}
-</style>
