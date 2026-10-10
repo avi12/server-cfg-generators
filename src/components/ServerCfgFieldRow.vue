@@ -1,5 +1,8 @@
 <template>
-  <div class="mt-7">
+  <div
+    class="mt-7"
+    :data-cvar="entry.cvar"
+  >
     CVar:
     <v-tooltip
       text="Click to copy"
