@@ -1,12 +1,13 @@
 import cs2Icon from "@/assets/img/cs2.svg";
 import gmodIcon from "@/assets/img/gmod.svg";
 import tf2Icon from "@/assets/img/tf2.svg";
+import type { PageUrl } from "@/constants/page-urls";
 import type { Component } from "vue";
 
 interface Generator {
   name: string;
   description: string;
-  pageUrl: string;
+  pageUrl: PageUrl;
   icon: string;
   component: () => Promise<Component>;
 }
