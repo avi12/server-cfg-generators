@@ -1,4 +1,4 @@
-import { generators } from "@/data/generators";
+import { games } from "@/data/games";
 import Home from "@/views/Home.vue";
 import { createRouter, createWebHistory } from "vue-router";
 
@@ -15,12 +15,15 @@ export const router = createRouter({
         title: TITLE_HOME
       }
     },
-    ...generators.map(generator => ({
-      path: `/${generator.pageUrl}`,
-      name: generator.pageUrl,
-      component: generator.component,
+    ...games.map(game => ({
+      path: `/${game.pageUrl}`,
+      name: game.pageUrl,
+      component: () => import("@/views/GeneratorPage.vue"),
+      props: {
+        game
+      },
       meta: {
-        title: `${generator.name} server.cfg Generator`
+        title: `${game.name} server.cfg Generator`
       }
     })),
     {
